@@ -1,0 +1,119 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Contact Form</h5>
+          <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form-signin">
+            <div class="form-label-group">
+              <input
+                type="text"
+                id="username"
+                name="username"
+                ngModel
+                class="form-control email-custom"
+                placeholder="User Name (lowercase)"
+                pattern="^[a-z0-9_-]{3,25}$"
+                required
+                autofocus
+              />
+              <span
+                *ngIf="
+                  !f.form.controls.username?.valid &&
+                  f.form.controls.username?.dirty &&
+                  f.form.controls.username?.touched
+                "
+                ><label class="danger-red" for="username"
+                  >Enter lowercase only</label
+                ></span
+              >
+            </div>
+            <div class="form-label-group">
+              <input
+                type="email"
+                id="inputEmail"
+                name="email"
+                ngModel
+                class="form-control email-custom"
+                placeholder="Email address"
+                pattern="[^ @]*@[^ @]*"
+                required
+              />
+              <span
+                *ngIf="
+                  !f.form.controls.email?.valid &&
+                  f.form.controls.email?.dirty &&
+                  f.form.controls.email?.touched
+                "
+                ><label class="danger-red" for="inputEmail"
+                  >Enter Vaild email</label
+                ></span
+              >
+            </div>
+
+            <div class="form-label-group">
+              <input
+                type="number"
+                name="number"
+                ngModel
+                minlength="10"
+                id="number"
+                class="form-control password-custom"
+                placeholder="Mobile Number"
+                pattern="^[6-9]\d{9}$"
+                required
+              />
+              <span
+                *ngIf="
+                  !f.form.controls.number?.valid &&
+                  f.form.controls.number?.dirty &&
+                  f.form.controls.number?.touched
+                "
+                ><label class="danger-red" for="number"
+                  >Enter 10 digit Mobile Number</label
+                ></span
+              >
+            </div>
+            <div class="form-label-group">
+              <textarea
+                type="text"
+                name="textarea"
+                ngModel
+                rows="3"
+                minlength="5"
+                id="textarea"
+                class="form-control password-custom"
+                placeholder="Feedback Content"
+                required
+              ></textarea>
+              <span
+                *ngIf="
+                  !f.form.controls.textarea?.valid &&
+                  f.form.controls.textarea?.dirty &&
+                  f.form.controls.textarea?.touched
+                "
+                ><label class="danger-red" for="textarea"
+                  >Please share your feedback</label
+                ></span
+              >
+            </div>
+            <p
+              class="row justify-content-center"
+              *ngIf="isValidFormSubmitted && f.pristine"
+              [ngClass]="'success'"
+            >
+              Form submitted successfully.
+            </p>
+            <button
+              [disabled]="f.invalid"
+              class="btn btn-lg btn-primary btn-block text-uppercase"
+              type="submit"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

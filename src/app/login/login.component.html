@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Log In</h5>
+          <form #f="ngForm" class="form-signin">
+            <div class="form-label-group">
+              <input
+                type="email"
+                id="inputEmail"
+                name="email"
+                ngModel
+                class="form-control email-custom"
+                placeholder="Email address"
+                pattern="[^ @]*@[^ @]*"
+                required
+                autofocus
+              />
+              <span
+                *ngIf="
+                  !f.form.controls.email?.valid &&
+                  f.form.controls.email?.dirty && f.form.controls.email?.touched
+                "
+                ><label class="danger-red" for="inputEmail"
+                  >Enter Vaild email</label
+                ></span
+              >
+            </div>
+
+            <div class="form-label-group">
+              <input
+                type="password"
+                name="password"
+                ngModel
+                minlength="8"
+                id="inputPassword"
+                class="form-control password-custom"
+                placeholder="Password"
+                required
+              />
+              <span
+                *ngIf="
+                  !f.form.controls.password?.valid &&
+                  f.form.controls.password?.dirty &&
+                  f.form.controls.password?.touched
+                "
+                ><label class="danger-red" for="inputPassword"
+                  >Password should be 8 characters</label
+                ></span
+              >
+            </div>
+
+            <div class="custom-control custom-checkbox mb-3">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                id="customCheck1"
+              />
+              <label class="custom-control-label" for="customCheck1"
+                >Remember password</label
+              >
+            </div>
+            <button
+              [disabled]="f.invalid"
+              [routerLink]="['/list']"
+              class="btn btn-lg btn-primary btn-block text-uppercase"
+              type="submit"
+            >
+              Sign in
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

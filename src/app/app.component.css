@@ -1,0 +1,19 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #daecec;
+  display: grid;
+  place-items: center;
+}
+
+*:focus {
+  outline: none;
+}
