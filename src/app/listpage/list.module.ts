@@ -6,6 +6,8 @@ import { FallbackDirective } from '../fallback.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { ListpageComponent } from './listpage.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 export const routes: Routes = [{ path: '', component: ListpageComponent }];
 
@@ -15,6 +17,8 @@ export const routes: Routes = [{ path: '', component: ListpageComponent }];
     CommonModule,
     HttpClientModule,
     NgbModule,
+    InfiniteScrollModule,
+    NgxSpinnerModule,
     RouterModule.forChild(routes),
   ],
   exports: [ListpageComponent, RouterModule, ListComponent],
